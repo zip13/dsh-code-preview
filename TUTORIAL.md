@@ -399,7 +399,7 @@ Select-String '</_' lib\client.js   # 应为 0 个原始 JSX 标签
 tsdown——**直接借用 DSH 仓库 node_modules 里的那份**，一行都不用装：
 
 ```sh
-node H:\code2\deepseek-harness\node_modules\tsdown\dist\run.mjs
+node <dsh-checkout>/node_modules/tsdown/dist/run.mjs
 ```
 
 ### 验证 bundle 格式
@@ -435,7 +435,7 @@ node scripts/smoke.mjs
 
 ```sh
 # 在 DSH 源码 checkout 中（等价于已安装 CLI 时的 dsh plugin ...）：
-node --import tsx/esm apps/cli/src/bin.ts plugin --profile web add H:\code2\hcwebv3\dsh-code-preview
+node --import tsx/esm apps/cli/src/bin.ts plugin --profile web add <path-to>/dsh-code-preview
 ```
 
 安装后验证三件事：
