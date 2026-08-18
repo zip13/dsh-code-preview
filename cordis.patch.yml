@@ -1,0 +1,9 @@
+# dsh-code-preview 的 profile 组合层：一行同时激活主机半（RPC 通道）
+# 与浏览器半（dsh.client 声明由 client-modules 扫描发现）。
+- insert:
+    - id: code-preview
+      name: dsh-code-preview
+      # 可选配置：
+      # config:
+      #   maxBytes: 524288    # 直接读取的文件大小上限（超过则流式截断）
+      #   maxChars: 200000    # 截断预览保留的最大字符数
