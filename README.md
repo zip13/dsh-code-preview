@@ -6,7 +6,7 @@ DSH（DeepSeek Harness）Web GUI 的外部用户插件：**点击聊天消息中
 
 ## 功能
 
-- 点击聊天中的文件引用（`button.fileMention`，或路径样的行内代码，如 `src/index.ts`、`H:\code2\xxx\package.json`），在 GUI 右侧打开停靠抽屉式预览面板；
+- 点击聊天中的文件引用（`button.fileMention`，或路径样的行内代码，如 `src/index.ts`、`C:\path\to\package.json`），在 GUI 右侧打开停靠抽屉式预览面板；
 - 抽屉不遮挡聊天区：点击其他文件引用会直接切换内容，Escape 或关闭按钮收起；
 - 文件内容通过插件自建的 `/code-preview` RPC 通道从主机读取，使用 GUI 自带的 shiki 高亮渲染（`CodeBlock`），支持一键复制；
 - 相对路径以当前会话的工作区目录（cwd）解析；主机端强制包含性检查，拒绝读取会话工作区之外的路径；
@@ -29,10 +29,10 @@ DSH（DeepSeek Harness）Web GUI 的外部用户插件：**点击聊天消息中
 
 ## 构建
 
-本目录不锁定自己的依赖；直接用 DSH 仓库里的 tsdown 构建即可：
+本目录不锁定自己的依赖；直接用 DSH 仓库里的 tsdown 构建即可（把 `<dsh-checkout>` 换成你的 DSH 源码 checkout 路径）：
 
 ```sh
-node H:\code2\deepseek-harness\node_modules\tsdown\dist\run.mjs
+node <dsh-checkout>/node_modules/tsdown/dist/run.mjs
 ```
 
 （或在本目录 `npm install` 后 `npm run build`。）
@@ -40,10 +40,10 @@ node H:\code2\deepseek-harness\node_modules\tsdown\dist\run.mjs
 ## 安装 / 卸载
 
 ```sh
-# 在 DSH 源码 checkout 中：
-pnpm dsh plugin --profile web add H:\code2\hcwebv3\dsh-code-preview
+# 在 DSH 源码 checkout 中（把 <path-to>/dsh-code-preview 换成本插件目录的实际路径）：
+pnpm dsh plugin --profile web add <path-to>/dsh-code-preview
 # 或已安装 dsh CLI 时：
-dsh plugin --profile web add H:\code2\hcwebv3\dsh-code-preview
+dsh plugin --profile web add <path-to>/dsh-code-preview
 
 # 移除：
 dsh plugin --profile web remove dsh-code-preview
